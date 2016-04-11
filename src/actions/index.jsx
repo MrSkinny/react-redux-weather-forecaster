@@ -7,9 +7,9 @@ const FETCH_WEATHER = 'FETCH_WEATHER';
 
 function fetchWeather(cityName) {
   const url = `${ROOT_URL}&q=${cityName},us`;
+  // redux-promise middleware captures a promise and resolves it first before sending
+  // request object into the action payload
   const request = axios.get(url);
-  
-  console.log('Request: ', request);
   
   return {
     type: FETCH_WEATHER,
